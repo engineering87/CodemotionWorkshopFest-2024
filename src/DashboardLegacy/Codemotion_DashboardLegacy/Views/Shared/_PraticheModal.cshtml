@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Codemotion_DashboardLegacy.Data.ViewModels.PraticaViewModel>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Protocollo</th>
+                <th>Data Inserimento</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pratica in Model)
+            {
+                <tr>
+                    <td>@pratica.Id</td>
+                    <td>@pratica.Protocollo</td>
+                    <td>@pratica.DataInserimento.ToString("dd/MM/yyyy")</td>
+                    <td>@pratica.Tipo.Descrizione</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

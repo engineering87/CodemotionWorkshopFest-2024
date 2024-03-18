@@ -1,0 +1,12 @@
+/** @format */
+
+/* IMPORT of the @mixin: on top of this file
+ @use '../../assets/INPS_Style/custom.module.scss' as custom; 
+
+ implementation of specific @mixin inside class 
+    @include custom.wrapper() {
+    font-family: 'TitilliumWeb-Bold';
+  }*/
+
+.wrapper {
+}

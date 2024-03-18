@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Codemotion_DashboardLegacy.Data.ViewModels.BeneficiarioViewModel>
+
+<main aria-labelledby="title">
+    <h2 id="title">Beneficiari</h2>
+
+    <div class="row mb-3">
+        <div class="col">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Cognome o Email">
+                <button id="searchButton" class="btn btn-outline-primary" type="button">Cerca</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Cellulare</th>
+                    <th>Email</th>
+                    <th>Dettagli</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var beneficiario in Model)
+                {
+                    <tr>
+                        <td>@beneficiario.Id</td>
+                        <td>@beneficiario.Nome</td>
+                        <td>@beneficiario.Cognome</td>
+                        <td>@beneficiario.Cellulare</td>
+                        <td>@beneficiario.Email</td>
+                        <td><button class="btn btn-outline-primary btn-sm" onclick="openModal('@beneficiario.Id')">Vedi pratiche</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<div class="modal fade bd-example-modal-lg" id="praticheModal" tabindex="-1" role="dialog" aria-labelledby="praticheModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="praticheModalLabel">Dettaglio Pratiche</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalBody">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+
+        $(document).ready(function () {
+            $('#searchButton').on('click', function () {
+                var searchInput = $('#searchInput').val();
+                window.location.href = '@Url.Action("Beneficiari", "Beneficiario")?searchInput=' + searchInput;
+            });
+        });
+
+        function openModal(beneficiarioId) {
+            $.ajax({
+                url: '/Pratiche/PraticheByBeneficiarioId',
+                type: 'GET',
+                data: { beneficiarioId: beneficiarioId },
+                success: function (data) {
+                    $('#modalBody').html(data);
+                    $('#praticheModal').modal('show');
+                },
+                error: function () {
+                    alert('Errore durante il recupero delle Pratiche');
+                }
+            });
+        }
+
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Codemotion_DashboardLegacy.Data.ViewModels.PraticaOrdinariaViewModel>
+
+<main aria-labelledby="title">
+    <h2 id="title">Pratiche Ordinarie</h2>
+
+    <div class="row mb-3">
+        <div class="col">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Id o Protocollo">
+                <button id="searchButton" class="btn btn-outline-primary" type="button">Cerca</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Protocollo</th>
+                    <th>Data Inserimento</th>
+                    <th>Tipo</th>
+                    <th>Tipo Pagamento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pratica in Model)
+                {
+                    <tr>
+                        <td>@pratica.Id</td>
+                        <td>@pratica.Protocollo</td>
+                        <td>@pratica.DataInserimento.ToString("dd/MM/yyyy")</td>
+                        <td>@pratica.Tipo.Descrizione</td>
+                        <td>@pratica.Pagamento.Descrizione</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#searchButton').on('click', function () {
+                var searchInput = $('#searchInput').val();
+                window.location.href = '@Url.Action("PraticheOrdinarie", "Pratiche")?searchInput=' + searchInput;
+            });
+        });
+    </script>
+}

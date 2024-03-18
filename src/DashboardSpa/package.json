@@ -1,0 +1,69 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.14.0 <19"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.1",
+    "@antv/g2": "^5.1.16",
+    "@reduxjs/toolkit": "^2.2.1",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.89",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@types/redux-logger": "^3.0.9",
+    "antd": "^5.15.2",
+    "axios": "^1.6.7",
+    "dayjs": "^1.11.10",
+    "generate-react-cli": "^8.4.1",
+    "https": "^1.0.0",
+    "morgan": "^1.10.0",
+    "open": "^10.1.0",
+    "react": "^18.2.0",
+    "react-countup": "^6.5.2",
+    "react-dom": "^18.2.0",
+    "react-highlight-words": "^0.20.0",
+    "react-redux": "^8.0.0",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "5.0.1",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "styled-components": "^6.1.8",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.0",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "serve": "npm run swagger-autogen && node server.mjs",
+    "start": "react-scripts start",
+    "swagger-autogen": "node ./server/swagger/swagger.scripts.mjs",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "styled-components": "^5"
+  },
+  "devDependencies": {
+    "@types/react-highlight-words": "^0.16.7"
+  }
+}

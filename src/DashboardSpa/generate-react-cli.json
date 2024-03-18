@@ -1,0 +1,55 @@
+{
+  "usesTypeScript": true,
+  "usesCssModule": true,
+  "cssPreprocessor": "scss",
+  "testLibrary": "None",
+  "component": {
+    "default": {
+      "path": "src/components",
+      "withStyle": true,
+      "withLazy": true,
+      "withTest": false,
+      "withStory": false,
+      "withIndex": true,
+      "withTypes": true,
+      "customTemplates": {
+        "component": "templates/component/TemplateName.tsx",
+        "lazy": "templates/component/TemplateName.lazy.tsx",
+        "style": "templates/component/TemplateName.module.scss",
+        "types": "templates/component/TemplateName.types.d.ts",
+        "index": "templates/component/index.ts"
+      }
+    },
+    "view": {
+      "path": "src/views",
+      "withStyle": true,
+      "withLazy": false,
+      "withTest": false,
+      "withStory": false,
+      "withIndex": true,
+      "withTypes": true,
+      "customTemplates": {
+        "component": "templates/component/TemplateName.tsx",
+        "lazy": "templates/component/TemplateName.lazy.tsx",
+        "style": "templates/component/TemplateName.module.scss",
+        "types": "templates/component/TemplateName.types.d.ts",
+        "index": "templates/component/index.ts"
+      }
+    },
+    "service": {
+      "path": "src/services",
+      "withLazy": false,
+      "withStory": false,
+      "withStyle": false,
+      "withTest": false,
+      "withIndex": true,
+      "withTypes": true,
+      "customTemplates": {
+        "component": "templates/service/TemplateName.service.tsx",
+        "index": "templates/service/index.ts",
+        "types": "templates/service/TemplateName.types.d.ts"
+      }
+    }
+  },
+  "usesStyledComponents": true
+}

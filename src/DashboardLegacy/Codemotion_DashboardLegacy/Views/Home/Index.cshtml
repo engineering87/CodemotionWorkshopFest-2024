@@ -1,0 +1,40 @@
+﻿@model Codemotion_DashboardLegacy.Models.ContatoriPratiche
+
+<main aria-labelledby="title">
+    <h2 id="title">Home Page</h2>
+
+    <div class="row">
+        <div class="col">
+            <canvas id="pieChart" width="300" height="300"></canvas>
+        </div>
+    </div>
+
+</main>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var pieChartData = {
+                labels: ["Pratiche Ordinarie", "Pratiche Straordinarie"],
+                datasets: [{
+                    data: [@Model.ContatorePraticheOrdinarie, @Model.ContatorePraticheStraordinarie],
+                    backgroundColor: ["#FF6384", "#36A2EB"],
+                    hoverBackgroundColor: ["#FF6384", "#36A2EB"]
+                }]
+            };
+
+            var ctx = document.getElementById("pieChart").getContext('2d');
+
+            new Chart(ctx, {
+                type: 'pie',
+                data: pieChartData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        });
+    </script>
+}
